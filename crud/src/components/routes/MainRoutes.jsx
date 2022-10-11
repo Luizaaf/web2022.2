@@ -14,7 +14,7 @@ const MainRoutes = () => {
       <Route path='/' element={<Home />} />
       <Route path='createStudent' element={<CreateStudent />} />
       <Route path='listStudent' element={<ListStudent />} />
-      <Route path='editStudent' element={<EditStudent />} />
+      <Route path='editStudent/:id' element={<EditStudent />} />
       <Route path='createLecturer' element={<CreateLecturer />} />
       <Route path='listLecturer' element={<ListLecturer />} />
       <Route path='editLecturer' element={<EditLecturer />} />

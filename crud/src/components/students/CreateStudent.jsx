@@ -20,10 +20,14 @@ const CreateStudent = () => {
 
     axios.post("http://localhost:3001/students", newStudent)
     .then(
-      console.log("Estudante cadastrado com sucesso"),
-      navigate('/listStudent')  
+      (response) => {
+        console.log(response.data.id)
+        navigate('/listStudent')    
+      }
     ).catch(
-      console.log("Erro ao cadastrar estudante")
+      (error) => {
+        console.log("Erro ao cadastrar estudante" + error)
+      }
     )
   }
 
