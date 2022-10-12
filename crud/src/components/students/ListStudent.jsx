@@ -11,7 +11,7 @@ const ListStudent = () => {
             axios.get("http://localhost:3001/students")
                 .then(
                     (response) => {
-                        // console.log(response.data)
+                        console.log(response.data)
                         setStudents(response.data)
                     }
                 ).catch(
