@@ -23,12 +23,21 @@ const ListStudent = () => {
         []
     )
 
+    const deleteStudent = (id) => {
+        if (window.confirm(("Deseja Excluir"))) {
+            axios.delete("http://localhost:3001/students/"+id)
+            .then(response => {
+                console.log("Ok")
+            })
+            .catch(error => console.log(error))
+        }
+    }
+
     const generateTableBody = () => {
         return students.map(
             (student, index) => {
-                student.key = index
                 return (
-                    <tr>
+                    <tr key={student.id}>
                         <td>{student.id}</td>
                         <td>{student.name}</td>
                         <td>{student.course}</td>
@@ -39,7 +48,7 @@ const ListStudent = () => {
                             </Link>
                         </td>
                         <td style={{ textAlign: "center" }}>
-                            <button className="btn btn-danger">Apagar</button>
+                            <button className="btn btn-danger" onClick={() => deleteStudent(student.id)}>Apagar</button>
                         </td>
                     </tr>
                 )
