@@ -45,7 +45,7 @@ const Questao04 = () => {
       <table className="table table-striped">
         <thead>
           <tr>
-            <th colSpan={2}>Africa</th>
+            <th colSpan={2}>País mais populoso da Africa</th>
           </tr>
           <tr>
             <th>País</th>
@@ -56,7 +56,6 @@ const Questao04 = () => {
           {getMaisPopuloso()}
         </tbody>
       </table>
-      <h2>Mais Populoso</h2>
     </div>
   )
 }

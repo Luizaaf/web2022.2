@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       {/* <Questao01>
-        <Questao01A nome="Luiz" sobrenome="Alves" curso="Redes de Computadores" />
+        <Questao01A />
         <Questao01B />
       </Questao01> */}
 

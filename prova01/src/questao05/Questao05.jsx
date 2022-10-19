@@ -77,12 +77,22 @@ const Questao05 = () => {
     )
   }
 
+  const getTableTitle = () => {
+    if (continente === "asia") {
+      return "País menos populoso da Asia"
+    } 
+    if (continente === "americas") {
+      return "País mais populoso das Americas"
+    }
+
+    return "País mais populoso da Africa"
+  }
   return (
     <div>
       <table className="table table-striped">
         <thead>
           <tr>
-            <th colSpan={2}>{continente}</th>
+            <th colSpan={2}>{getTableTitle()}</th>
           </tr>
           <tr>
             <th>País</th>

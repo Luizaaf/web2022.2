@@ -1,8 +1,12 @@
 
-const Questao01A = ({nome, sobrenome, curso}) => {
+const Questao01A = () => {
+  
+  const nome = "Luiz Alves"
+  const curso = "Redes de Computadores"
+  
   return (
     <div>
-      <h2>Nome: {nome} {sobrenome}</h2>
+      <h2>Nome: {nome}</h2>
       <h2>Curso: {curso}</h2>
     </div>
   )
