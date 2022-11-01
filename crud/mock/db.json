@@ -19,10 +19,22 @@
       "id": 4
     },
     {
-      "name": "Vittor",
+      "name": "Vitto",
       "course": "RC",
-      "ira": "9",
+      "ira": "9.4",
       "id": 5
+    },
+    {
+      "name": "Isadora",
+      "course": "RC",
+      "ira": "9.2",
+      "id": 6
+    },
+    {
+      "name": "Lucas",
+      "course": "RC",
+      "ira": "9.6",
+      "id": 7
     }
   ]
 }

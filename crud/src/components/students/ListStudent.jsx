@@ -2,34 +2,41 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
-const ListStudent = () => {
+import FirebaseContext from "../../utils/FirebaseContext"
+import StudentService from "../../services/StudentService"
+
+const ListStudentPage = () => {
+    return (
+        <FirebaseContext.Consumer>
+            {(value) => <ListStudent firebase={value} />}
+        </FirebaseContext.Consumer>
+    )
+}
+
+const ListStudent = (props) => {
 
     const [students, setStudents] = useState([])
 
     useEffect(
         () => {
-            axios.get("http://localhost:3001/students")
-                .then(
-                    (response) => {
-                        console.log(response.data)
-                        setStudents(response.data)
-                    }
-                ).catch(
-                    (error) => {
-                        console.log(error)
-                    }
-                )
+            StudentService.list(
+                props.firebase.getFirestoreDb(),
+                (students) => {
+                    setStudents(students)
+                }
+            )
         },
         []
     )
 
     const deleteStudent = (id) => {
         if (window.confirm(("Deseja Excluir"))) {
-            axios.delete("http://localhost:3001/students/"+id)
-            .then(response => {
-                console.log("Ok")
-            })
-            .catch(error => console.log(error))
+            axios.delete("http://localhost:3001/students/" + id)
+                .then(() => {
+                    let result = students.filter(student => student.id !== id)
+                    setStudents(result)
+                })
+                .catch(error => console.log(error))
         }
     }
 
@@ -43,7 +50,7 @@ const ListStudent = () => {
                         <td>{student.course}</td>
                         <td>{student.ira}</td>
                         <td style={{ textAlign: "center" }}>
-                            <Link to={"/editStudent/"+student.id}>
+                            <Link to={"/editStudent/" + student.id}>
                                 <button className="btn btn-primary">Editar</button>
                             </Link>
                         </td>
@@ -78,4 +85,4 @@ const ListStudent = () => {
     )
 }
 
-export default ListStudent
+export default ListStudentPage
